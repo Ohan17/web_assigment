@@ -27,12 +27,12 @@
             "ans_correct" => $question->ans_correct
         );
       
-        http_response_code(200);
-        #echo json_encode($question);
+        #http_response_code(200);
+        echo json_encode($question);
     }
       
     else{
-        http_response_code(404);
-        #echo json_encode("question not found.");
+        #http_response_code(404);
+        echo json_encode("question not found.");
     }
 ?>

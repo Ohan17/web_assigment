@@ -12,7 +12,7 @@
    
     $question = new Question($conn);
     $data = json_decode(file_get_contents("php://input"));
-    var_dump($data);
+    
     $question->id = $data->id;
     $question->content = $data->content;
     $question->topic = $data->topic;
@@ -22,12 +22,12 @@
     $question->ans_c = $data->ans_c;
     $question->ans_d = $data->ans_d;
     $question->ans_correct = $data->ans_correct;
-
+ 
     if ($question->update()){
-       # echo "update-success";
+       echo "update-success";
     }
     else{
-       # echo "cant update";
+        echo "cant update";
     }
 
 ?>

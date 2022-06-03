@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <div>
+    <div class="">
         <div class="container-fluid d-block d-md-flex " id="header">
            
             <div id="brand" class="text-center"  >
@@ -26,9 +26,8 @@
             </div>
             
        </div>
-      
-        <div  id="main"> 
-            <div id="content" class="col-4 mr-3">
+        <div  id="main" class="container-fluid"> 
+            <div class="row"> <div id="content" class="col-4 mr-3 mt-5">
                 <h1> Models</h1>
                 <div class="mb-4 mt-3 " id="authorization">
                     <table>
@@ -38,14 +37,11 @@
                         <tbody>
                             <tr>
                                 <th><a href="#">Users</a></th>
-                                <td><a href="#"><i class="bi bi-plus-circle"></i>
-
-                                    Add</a></td>
+                                
                                 
                             </tr>
                             <tr>
                                 <th>test</th>
-                                <td>test</td>
                                 
                             </tr>
                         </tbody>
@@ -60,15 +56,13 @@
                         </caption>
                         <tbody>
                             <tr>
-                                <th><a href="#">Questions</a></th>
-                                <td><a href="#"><i class="bi bi-plus-circle"></i>
-
-                                    Add</a></td>
+                                <th><a href="admin_question.html" onclick="location.reload()" id="question">Questions</a></th>
+                              
                                 
                             </tr>
                             <tr>
                                 <th>test</th>
-                                <td>test</td>
+                                
                                 
                             </tr>
                         </tbody>
@@ -76,12 +70,12 @@
                     
                 </div>
             </div>
-            <div class=" d-inline-block mt-5" id="body" style="width:60%">
+            <div class="col-6 mt-5 container" id="body" style="width:60%">
                 
                 <table id="table" style="width:100% ;">
                     
                     <h1 >Questions
-                        <button class="btn btn-outline-secondary ml-5" style="height:30px ; padding-bottom: 30px;"> 
+                        <button id="add-btn" class="btn btn-outline-secondary ml-5" style="height:30px ; padding-bottom: 30px;"> 
                             <i class="bi bi-plus-lg"></i>
                             Add question 
                         </button>
@@ -95,7 +89,8 @@
                          </tr>
                      </thead>
                 </table>
-            </div>
+            </div></div>
+            
         </div>
        
 
@@ -105,6 +100,8 @@
     
     
     <script src="admin_question.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -46,7 +46,7 @@
         $this->ans_c = $dataRow['ans_c'];
         $this->ans_d = $dataRow['ans_d'];
         $this->ans_correct = $dataRow['ans_correct'];
-        var_dump(($this));
+        #var_dump(($this));
     }
     //create qeuestion
     function create(){

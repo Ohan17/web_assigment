@@ -12,7 +12,7 @@
    
     $question = new Question($conn);
     $data = json_decode(file_get_contents("php://input"));
-    var_dump($data);
+    
     #$question->id = $data->id;
     $question->content = $data->content;
     $question->topic = $data->topic;
@@ -23,11 +23,11 @@
     $question->ans_d = $data->ans_d;
     $question->ans_correct = $data->ans_correct;
 
-    // if ($question->create()){
-    //     echo "creaet-success";
-    // }
-    // else{
-    //     echo "cant creaetet";
-    // }
+    if ($question->create()){
+        echo "creaet-success";
+    }
+    else{
+        echo "cant creaetet";
+    }
 
 ?>
