@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Admin Page</title>
-    <!-- /->it start at index -->
-    <link rel="stylesheet" href="views/admin_page.css">
-    
+    <link rel="stylesheet" href="admin_page.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
@@ -19,7 +17,7 @@
            
             <div id="brand" class="text-center"  >
                 <h1 id="site-name" >
-                    <a href="admin_page">  Admin site</a> 
+                    <a href="/admin_page.html">  Admin site</a> 
                 </h1>
             </div>
             
