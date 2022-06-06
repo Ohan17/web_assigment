@@ -1,7 +1,7 @@
 
 <?php 
 session_start();
-var_dump($_SESSION);
+
 if (empty($_SESSION) or $_SESSION["privillege"] !=1){
     $message = "You cant access that page";
     echo "<script type='text/javascript'>alert('$message');</script>";

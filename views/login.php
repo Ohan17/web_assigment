@@ -26,6 +26,7 @@
             {
                 $_SESSION["privillege"] = $rows->privillege;
                 $_SESSION["name"] = $rows->name;
+                $_SESSION["id"] = $rows->id;
                
             }
         }
@@ -33,7 +34,7 @@
    
     // var_dump($_SESSION["privillege"]);
    
-    header("Location: http://localhost/views/admin_page.php");
+    header("Location: http://localhost/views/user/index.php");
     // var_dump($_SESSION["privillege"]);
    
     // var_dump ($users_list);

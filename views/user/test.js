@@ -1,28 +1,25 @@
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max) +1;
-  }
-  
-const topic_id = getRandomInt(6);
-
-let topic_name = document.getElementById("topic-name");
-let t_name = ""
+const link = window.location.href;
+const index = link.indexOf("=")
+const topic_id = link.slice(index+1);
 
 const user_id = (myvar);
 
+let topic_name = document.getElementById("topic-name");
+let t_name = ""
 fetch(`http://localhost/api/topic_api/show.php?id=${topic_id}`)
 .then(res => res.json())
 .then(data =>{
+    // console.log(data);
     topic_name.innerText= "Topic " + data["name"] +": ";
-     t_name = data["name"]
-
-   
+    t_name= data["name"];
+    // console.log(topic_name)
 })
 
 fetch(`http://localhost/api/question_api/show_by_topic.php?topic=${topic_id}`)
 .then(res => res.json())
 .then(data =>
     {
-        console.log(data["questions"])
+        // console.log(data["questions"])
         test_form = document.getElementById("test-form");
         question_list = data["questions"];
         for(let i=0; i<10;i++){
@@ -82,6 +79,9 @@ fetch(`http://localhost/api/question_api/show_by_topic.php?topic=${topic_id}`)
                     score += 1;
                 }
             }
+            
+
+            
             if (user_id!=""){
                
                 const post_data={
@@ -105,7 +105,6 @@ fetch(`http://localhost/api/question_api/show_by_topic.php?topic=${topic_id}`)
             else{
                 alert("Your score is "+score+". Please login if you want to save this result ");
             }
-           
         }
     })
 

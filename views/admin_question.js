@@ -211,7 +211,7 @@ addButton.onclick = function (){
       },
       body: JSON.stringify(post_data)
     })
-    .then()
+    .then(location.reload())
       
     }
     

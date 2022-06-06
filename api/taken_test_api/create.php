@@ -5,23 +5,25 @@
     header("Access-Control-Allow-Header: Access-Control-Allow-Header, Content-Type, Access-Control-Allow-Method, Authorization, X-Requested-With");
 
     include_once "../../config/db.php";
-    include_once "../../models/topic.php";
+    include_once "../../models/taken_test.php";
 
     $db = new db();
     $conn = $db->connect();
    
-    $topic = new Topic($conn);
+    $taken_test = new Taken_test($conn);
     $data = json_decode(file_get_contents("php://input"));
     
-    $topic->id = $data->id;
-    $topic->name = $data->name;
-    $topic->level = $data->level;
-   
-    if ($topic->update()){
-       echo "update-success";
+    #$topic->id = $data->id;
+    $taken_test->topic = $data->topic;
+    $taken_test->score = $data->score;
+    $taken_test->userId = $data->userId;
+
+
+    if ($taken_test->create()){
+        echo "creaet-success";
     }
     else{
-        echo "cant update";
+        echo "cant creaetet";
     }
 
 ?>

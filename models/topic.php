@@ -3,7 +3,7 @@
        
         public $id ;
         public $name ;
-       
+        public $level;
     public function __construct($db){
         
         $this->conn = $db;
@@ -32,21 +32,26 @@
         
        
         $this->name = $dataRow['name'];
+        $this->level = $dataRow['level'];
         
     }
     //create qeuestion
     function create(){
         $query = "Insert Into Topics Set 
-        name=:name";
-        
+        name=:name,
+        level=:level";
         $stmt = $this->conn->prepare($query);
 
         //sanitize
         $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->level = htmlspecialchars(strip_tags($this->level));
+
         
 
         //bind para
         $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":level", $this->level);
+
         
         if($stmt->execute()){
             return true;
@@ -57,8 +62,8 @@
     function update(){
         $query = "Update Topics 
         Set 
-        name=:name
-            
+        name=:name,
+        level=:level
         Where
             id = :id";
         
@@ -67,16 +72,20 @@
         //sanitize
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->level = htmlspecialchars(strip_tags($this->level));
         
 
         //bind para
         $stmt->bindParam(":id", $this->id);
         $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":level", $this->level);
       
-
+        
         if($stmt->execute()){
+            echo 1;
             return true;
         }
+       
         return false;
     }
     function delete(){
@@ -96,6 +105,24 @@
             return true;
         }
         return false;
+    }
+    function show_by_level(){    
+        $query = "SELECT * From Topics  Where level =?  ";
+
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindparam(1,$this->level);
+        $stmt->execute();
+       
+        if( $stmt->rowCount() == 0){
+            #echo "not found";
+            exit;
+        }
+        
+        return $stmt;
+
+            
+        
     }
 }
 ?>

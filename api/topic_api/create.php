@@ -15,6 +15,7 @@
     
     #$topic->id = $data->id;
     $topic->name = $data->name;
+    $topic->level = $data->level;
    
 
     if ($topic->create()){

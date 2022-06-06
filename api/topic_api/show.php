@@ -17,7 +17,8 @@
         // create array
         $topic_item = array(
             "id" =>  $topic->id,
-            "name" => $topic->name
+            "name" => $topic->name,
+            "level" => $topic->level
            
         );
       

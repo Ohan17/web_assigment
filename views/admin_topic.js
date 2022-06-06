@@ -81,7 +81,7 @@ function changeTopic(record_id){
   
 
   topic_fields = Object.keys(data); 
-  console.log(topic_fields);
+  console.log(data);
   for (let i=1; i< topic_fields.length-1;i++)
   {
     let hr =  document.createElement("hr") ;
@@ -97,6 +97,7 @@ function changeTopic(record_id){
     input.setAttribute("id",topic_fields[i]);
     input.setAttribute("name",topic_fields[i]);
     input.setAttribute("value",data[topic_fields[i]]);
+    console.log(data[topic_fields[i]])
     fieldset.appendChild(label);
     fieldset.appendChild(input);
     fieldset.appendChild(hr);
@@ -123,9 +124,10 @@ function changeTopic(record_id){
      
       let post_data={
       "id":record_id,
-    "name":data[0].value
+    "name":data[0].value,
+    "level":parseInt(data[1].value)
       }
-    
+   
     fetch('http://localhost/api/topic_api/update.php', {
       method: 'POST',
       headers: {
@@ -155,7 +157,7 @@ addButton.onclick = function (){
   body.removeChild(table);
   body.appendChild(form);
   
-  let topic_fields = ["name"];
+  let topic_fields = ["name","level"];
   for (let i=0; i< topic_fields.length;i++)
   {
     let hr =  document.createElement("hr") ;
@@ -188,10 +190,9 @@ addButton.onclick = function (){
     button.onclick=function(){
       let data = document.getElementsByTagName("input");
       let post_data={
-      "name":data[0].value
-      
+      "name":data[0].value,
+      "level":parseInt(data[1].value)
     };
-     
       fetch('http://localhost/api/topic_api/create.php', {
       method: 'POST',
       headers: {
