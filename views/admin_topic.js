@@ -1,12 +1,12 @@
 
 
-const rows = fetch("http://localhost/api/question_api/read.php")
+const rows = fetch("http://localhost/api/topic_api/read.php")
                 .then(res => res.json())
                 .then(data =>{
-
-                    const array_question = data['questions'];
-                    const keys = Object.keys(array_question[0])
-                    numRow = array_question.length;
+                    console.log(data)
+                    const array_topic = data['topics'];
+                    const keys = Object.keys(array_topic[0])
+                    numRow = array_topic.length;
 
                     let body = document.getElementById("body");
                     let table = document.getElementById("table");
@@ -20,15 +20,15 @@ const rows = fetch("http://localhost/api/question_api/read.php")
 
                         for (var j=0 ; j<2;j++){
                             var td = document.createElement("td");
-                            td.innerHTML=array_question[i][keys[j]];
+                            td.innerHTML=array_topic[i][keys[j]];
                       
                             row.appendChild(td);
                         }
                         var td_delete = document.createElement("td");
-                        td_delete.innerHTML = `<button  onclick="removeQuestion(this.id)" class="delete-btn" id=${array_question[i][keys[0]]} ><i class="bi bi-x-lg"></i>Delete</button>`;
+                        td_delete.innerHTML = `<button  onclick="removeTopic(this.id)" class="delete-btn" id=${array_topic[i][keys[0]]} ><i class="bi bi-x-lg"></i>Delete</button>`;
                         row.appendChild(td_delete);
                         var td_change = document.createElement("td");
-                        td_change.innerHTML = `<button  onclick="changeQuestion(this.id)" class="delete-btn" id=${array_question[i][keys[0]]} ><i class="bi bi-pencil-fill"></i>Change</button>`;
+                        td_change.innerHTML = `<button  onclick="changeTopic(this.id)" class="delete-btn" id=${array_topic[i][keys[0]]} ><i class="bi bi-pencil-fill"></i>Change</button>`;
                         row.appendChild(td_change);
                         // td.innerText = "<a>Change<a>"
                         // row.appendChild(td);
@@ -42,9 +42,9 @@ const rows = fetch("http://localhost/api/question_api/read.php")
                 .catch(e => console.log(e));
 
 
-function removeQuestion(record_id){
+function removeTopic(record_id){
   record_id= parseInt(record_id);
-  fetch('http://localhost/api/question_api/delete.php', {
+  fetch('http://localhost/api/topic_api/delete.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -55,10 +55,10 @@ function removeQuestion(record_id){
 }
 
 
-function changeQuestion(record_id){
+function changeTopic(record_id){
   //  alert('chnage');
   
-  fetch(`http://localhost/api/question_api/show.php?id=${record_id}`)
+  fetch(`http://localhost/api/topic_api/show.php?id=${record_id}`)
   .then(response =>{return (response.json())})
   .then(data => {
     let addButton = document.getElementById("add-btn"); 
@@ -73,30 +73,30 @@ function changeQuestion(record_id){
   let fieldset = document.createElement("fieldset");
   let legend = document.createElement("legend");
   fieldset.appendChild(legend);
-  legend.innerText="Change question";
+  legend.innerText="Change Topic";
  let form = document.createElement('form');
  form.appendChild(fieldset);
   body.removeChild(table);
   body.appendChild(form);
   
 
-  question_fields = Object.keys(data); 
-  
-  for (let i=2; i< question_fields.length;i++)
+  topic_fields = Object.keys(data); 
+  console.log(topic_fields);
+  for (let i=1; i< topic_fields.length-1;i++)
   {
     let hr =  document.createElement("hr") ;
     
     let label = document.createElement("label");
-    label.setAttribute("for",question_fields[i]);
-    let captialize = question_fields[i][0].toUpperCase() + question_fields[i].substr(1);
+    label.setAttribute("for",topic_fields[i]);
+    let captialize = topic_fields[i][0].toUpperCase() + topic_fields[i].substr(1);
     
     label.innerText = captialize+": ";
     let input = document.createElement("input");
     input.setAttribute("type","text");
 
-    input.setAttribute("id",question_fields[i]);
-    input.setAttribute("name",question_fields[i]);
-    input.setAttribute("value",data[question_fields[i]]);
+    input.setAttribute("id",topic_fields[i]);
+    input.setAttribute("name",topic_fields[i]);
+    input.setAttribute("value",data[topic_fields[i]]);
     fieldset.appendChild(label);
     fieldset.appendChild(input);
     fieldset.appendChild(hr);
@@ -123,16 +123,10 @@ function changeQuestion(record_id){
      
       let post_data={
       "id":record_id,
-    "content":data[0].value,
-    "topic":data[1].value,
-    "level":parseInt(data[2].value),
-    "ans_a":data[3].value,
-    "ans_b":data[4].value,
-    "ans_c":data[5].value,
-    "ans_d":data[6].value,
-    "ans_correct":data[7].value};
+    "name":data[0].value
+      }
     
-    fetch('http://localhost/api/question_api/update.php', {
+    fetch('http://localhost/api/topic_api/update.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -155,27 +149,27 @@ addButton.onclick = function (){
   let fieldset = document.createElement("fieldset");
   let legend = document.createElement("legend");
   fieldset.appendChild(legend);
-  legend.innerText="Change question";
+  legend.innerText="Change topic";
  let form = document.createElement('form');
  form.appendChild(fieldset);
   body.removeChild(table);
   body.appendChild(form);
   
-  let question_fields = ["content","topic","level","ans_a","ans_b","ans_c","ans_d","ans_correct"]
-  for (let i=0; i< question_fields.length;i++)
+  let topic_fields = ["name"];
+  for (let i=0; i< topic_fields.length;i++)
   {
     let hr =  document.createElement("hr") ;
     
     let label = document.createElement("label");
-    label.setAttribute("for",question_fields[i]);
-    let captialize = question_fields[i][0].toUpperCase() + question_fields[i].substr(1);
+    label.setAttribute("for",topic_fields[i]);
+    let captialize = topic_fields[i][0].toUpperCase() + topic_fields[i].substr(1);
     
     label.innerText = captialize+": ";
     let input = document.createElement("input");
     input.setAttribute("type","text");
 
-    input.setAttribute("id",question_fields[i]);
-    input.setAttribute("name",question_fields[i]);
+    input.setAttribute("id",topic_fields[i]);
+    input.setAttribute("name",topic_fields[i]);
     fieldset.appendChild(label);
     fieldset.appendChild(input);
     fieldset.appendChild(hr);
@@ -194,24 +188,18 @@ addButton.onclick = function (){
     button.onclick=function(){
       let data = document.getElementsByTagName("input");
       let post_data={
-      "content":data[0].value,
-      "topic":data[1].value,
-      "level":parseInt(data[2].value),
-      "ans_a":data[3].value,
-      "ans_b":data[4].value,
-      "ans_c":data[5].value,
-      "ans_d":data[6].value,
-      "ans_correct":data[7].value
-    };
+      "name":data[0].value
       
-      fetch('http://localhost/api/question_api/create.php', {
+    };
+     
+      fetch('http://localhost/api/topic_api/create.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(post_data)
     })
-    .then()
+    .then(location.reload() )
       
     }
     

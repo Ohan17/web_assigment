@@ -25,11 +25,11 @@
         );
       
         http_response_code(200);
-        #echo json_encode($user);
+        echo json_encode($user);
     }
       
     else{
         http_response_code(404);
-        # json_encode("user not found.");
+         json_encode("user not found.");
     }
 ?>

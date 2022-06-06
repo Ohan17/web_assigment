@@ -23,6 +23,24 @@
         return $stmt;
     }
     //show question by id
+    function show_by_topic(){    
+        $query = "SELECT * From Questions  Where topic =?  ORDER BY RAND() LIMIT 10";
+
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindparam(1,$this->topic);
+        $stmt->execute();
+       
+        if( $stmt->rowCount() == 0){
+            #echo "not found";
+            exit;
+        }
+        
+        return $stmt;
+
+            
+        
+    }
     function show_by_id(){    
         $query = "SELECT * From Questions Where id =?";
         $stmt = $this->conn->prepare($query);
