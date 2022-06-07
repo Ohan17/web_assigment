@@ -8,7 +8,7 @@
     $conn = $db->connect();
    
     $taken_test = new Taken_test($conn);
-    $taken_test->level =  strpos($_SERVER["REQUEST_URI"],'?') ? intval($_GET['userId']) : 0; 
+    $taken_test->userId =  strpos($_SERVER["REQUEST_URI"],'?') ? intval($_GET['userId']) : 0; 
    
     $taken_test = $taken_test->show_by_userID();
     

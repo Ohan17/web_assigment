@@ -1,6 +1,8 @@
 <?php
     session_start();
-    
-    session_destroy();
-    header("Location: login.html")
+    header("Location: http://localhost/views/user/index.php");
+        session_destroy();
+
+   
+
 ?>
