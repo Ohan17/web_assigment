@@ -121,10 +121,29 @@ h3 {
     font-size: 2.2rem;
 }
 
-.block-content{
-    max-width: 500px;
-}
-
 .flex-end {
     justify-content: flex-end;
+}
+
+.begin-test-btn {
+    margin: auto;
+    margin-top: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .column {
+        flex-direction: column;
+    }
+    .column *:first-child {
+        margin-right: 0px;
+    }
+
+    section {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
