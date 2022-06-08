@@ -1,0 +1,147 @@
+#header{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: white;
+    
+}
+
+#site-name>a{
+    color:#f5dd5d;
+}
+#site-name>a:hover{
+    text-decoration: none;
+}
+
+#user{
+    color: white;
+}
+#user>a{
+    color: white;
+    text-decoration: underline;
+}
+#main{
+    background-color: white;
+    height: auto;
+    /* #    width: 100%; */
+    color: white;
+    padding: 10px 40px;
+    width: 100vw;
+}
+table{
+    
+    width: 100vw;
+    
+}
+table>caption{
+    color :black;
+    caption-side:top;
+    padding: 0px 10px;
+    width: 300px
+}
+table>tbody>tr{
+    color: black;
+    
+}
+table>tbody>tr>td{
+    /* width: 40%; */
+    text-align: right;
+    padding: 0px 10px;
+    color :black
+}
+table>tbody>tr>td>a{
+    color :black
+}
+table>tbody>tr>th>a{
+    color :black
+}
+table>tbody>tr>th{
+   
+    text-align: left;
+    padding: 0px 10px;
+}
+tr:nth-child(even) {
+    
+    background-color: white;
+  }
+  tr:nth-child(odd) {
+    background-color: white;
+  }
+
+
+.content{
+    /* width: 50%; */
+}
+  
+ #body{
+   
+    display: inline-block;
+}
+#content{
+    display: inline-block;
+} 
+
+#body>#table{
+    margin-top: 15px;
+    
+}
+#body>#table>thead{
+    color :black;
+ }
+ #body>#table>tbody>tr>td{
+    text-align: left;
+    padding: 0;
+    width: max-content;
+ }
+#add{
+    margin-left: 50px;
+}
+
+button{
+    
+    border: none;
+    background-color: transparent;
+    color :black
+}
+
+caption{
+    background-color:#264b5d;
+    color: beige;
+    caption-side:top;
+    padding: 0px 10px;
+    width: 400px;
+}
+
+label{
+    margin-right: 20px;
+   
+    padding-left: 20px;
+
+}
+form{
+    margin-left: 100px;
+    color :beige;
+    width: 80%;
+}
+form>fieldset>legend{
+    background-color: #264b58;
+    padding-left: 20px;
+}
+form>fieldset>input{
+    border: solid #272727;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+#body>h1{
+    padding-left: 100px;
+}
+form>fieldset>hr{
+    width: 85%;
+    border: 1px dotted;
+    background-color: white;
+}
+
