@@ -1,89 +1,16 @@
 <?php 
-session_start();
+include_once "header.php";
 $session_value=(isset($_SESSION))?$_SESSION['id']:''; ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-
-
-
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-light shadow-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Brand</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
-              <li class="nav-item me-5">
-                <a class="nav-link " aria-current="page" href="#"><i class="bi bi-house-door"></i>Home</a>
-              </li>
-              
-              <li class="nav-item dropdown me-5">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-bar-chart"></i>
-                        Level
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Level 1</a></li>
-                  <li><a class="dropdown-item" href="#">Level 2</a></li>
-                  <li><a class="dropdown-item" href="#">Level 3</a></li>
-                </ul>
-              </li>
-              <li class="nav-item me-5">
-                <a class="nav-link " aria-current="page" href="#"><i class="bi bi-door-open"></i>
-                Login</a>
-              </li>
-              <li class="nav-item me-5">
-                <a class="nav-link " aria-current="page" href="#"><i class="bi bi-clock-history"></i>
-                    Test history</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search topic" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
     <div class="container-fluid text-center mt-2" >
           <h4 id="topic-name">  Topic name </h1>
     </div>
 
     
-        <div style="" class="shadow justify-content-center d-flex justify-content-center">
+        <div  class="shadow justify-content-center d-flex justify-content-center">
             <form action="/action_page.php" class="my-3 shadow p-4" id="test-form">
                 
-<!--             
-            <label style="display:inline;" for="cars">Question : I can't find my keys. I don't know where ____ are. <br>
-                 B. It<br>
-                 C. They<br>
-                 D. Him<br>
-                 A. Him<br>
-                Choose your answer:
-            </label>
-                <label for="cars">choose your answer </label>
-                <select id="cars" name="cars">
-                    <option value="1">A</option>
-                    <option value="2">B</option>
-                    <option value="3">C</option>
-                    <option value="4">D</option>
-                </select>
-                <hr> -->
 
-
-                <!-- <input type="submit"> -->
             </form>
 
         </div>

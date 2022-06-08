@@ -1,4 +1,3 @@
-console.log(1)
 const topic = fetch("http://localhost/api/topic_api/show_by_level.php?level=1")
 .then(res=>res.json())
 .then(data=>{

@@ -1,4 +1,3 @@
-console.log(1)
 const topic = fetch("http://localhost/api/topic_api/show_by_level.php?level=2")
 .then(res=>res.json())
 .then(data=>{
@@ -23,14 +22,19 @@ const topic = fetch("http://localhost/api/topic_api/show_by_level.php?level=2")
         let button = document.createElement("button");
         button.setAttribute("type","button");
         button.setAttribute("class","btn btn-outline-warning");
-        button.setAttribute("id",topics[i][0]);
+
+        let link = document.createElement("a");
+        link.setAttribute("id",topics[i]["id"]);
+        link.setAttribute("href",`test.php?topic=${topics[i]["id"]}`);
+        link.appendChild(button);
+       
         button.innerText ="Take the test"
 
         card_group.appendChild(col);
         col.appendChild(card);
         card.appendChild(card_body);
         card_body.appendChild(title);
-        card_body.appendChild(button);
+        card_body.appendChild(link);
     }
     console.log(topics);
 })

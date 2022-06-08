@@ -1,10 +1,10 @@
 
    <?php
-    session_start();    
-   require_once "core/Application.php";
+    //session_start();    
+  // require_once "core/Application.php";
    #require_once __DIR__.'vendor/autoload.php';
    #use app\core\Application;
-   $app = new Application();
+  // $app = new Application();
    // var_dump($_SESSION);
 //    $app->router->get("/",function(){
 //     include_once "./views/index.html";
@@ -18,4 +18,5 @@
 
   
    // $app->run();
+   include_once "views/user/index.php"
 ?>

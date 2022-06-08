@@ -22,19 +22,24 @@
         $users_list['users'] = [];
         while($rows = $users->fetchObject()){
              json_encode($rows);
-            if ($_POST["uname"]==$rows->name && $_POST["psw"]==$rows->password)
+            if ($_POST["name"]==$rows->name && $_POST["password"]==$rows->password)
             {
                 $_SESSION["privillege"] = $rows->privillege;
                 $_SESSION["name"] = $rows->name;
                 $_SESSION["id"] = $rows->id;
-               
+                header("Location: http://localhost/views/user/index.php");
+
+
             }
         }
     }
+    
+    header("Location: http://localhost/views/user/index.php");
+
    
     // var_dump($_SESSION["privillege"]);
    
-    header("Location: http://localhost/views/user/index.php");
+   
     // var_dump($_SESSION["privillege"]);
    
     // var_dump ($users_list);
