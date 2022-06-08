@@ -108,8 +108,8 @@ function changeQuestion(record_id){
   fieldset.appendChild(breakLine);
     let button = document.createElement("button");
     button.setAttribute("id","edit-btn");
-    button.setAttribute("class","btn btn-outline-secondary  ");
-    button.setAttribute("style","height:30px ; padding-bottom: 30px;float:right; background-color:#264b58; color:beige");
+    button.setAttribute("class","btn btn-primary mb-4");
+    button.setAttribute("style","height:30px ; padding-bottom: 30px;float:right; ");
     button.setAttribute("type","button")
     button.innerText= "Edit";
     fieldset.appendChild(button);
@@ -148,73 +148,73 @@ function changeQuestion(record_id){
 
 let addButton = document.getElementById("add-btn"); 
 addButton.onclick = function (){
-  addButton.innerText="Back";
-    addButton.onclick= function(){
-      location.reload();
-    }
-  let body = document.getElementById("body");
-  let table = document.getElementById("table");
-  let fieldset = document.createElement("fieldset");
-  let legend = document.createElement("legend");
-  fieldset.appendChild(legend);
-  legend.innerText="Change question";
- let form = document.createElement('form');
- form.appendChild(fieldset);
-  body.removeChild(table);
-  body.appendChild(form);
+    window.location.href = "http://localhost/views/create_question_form.php";
+    //   addButton.innerText="Back";
+//     addButton.onclick= function(){
+//       location.reload();
+//     }
+//   let body = document.getElementById("body");
+//   let table = document.getElementById("table");
+//   let fieldset = document.createElement("fieldset");
+//   let legend = document.createElement("legend");
+//   fieldset.appendChild(legend);
+//   legend.innerText="Change question";
+//  let form = document.createElement('form');
+//  form.appendChild(fieldset);
+//   body.removeChild(table);
+//   body.appendChild(form);
   
-  let question_fields = ["content","topic","level","ans_a","ans_b","ans_c","ans_d","ans_correct"]
-  for (let i=0; i< question_fields.length;i++)
-  {
-    let hr =  document.createElement("hr") ;
+//   let question_fields = ["content","topic","level","ans_a","ans_b","ans_c","ans_d","ans_correct"]
+//   for (let i=0; i< question_fields.length;i++)
+//   {
+//     let hr =  document.createElement("hr") ;
     
-    let label = document.createElement("label");
-    label.setAttribute("for",question_fields[i]);
-    let captialize = question_fields[i][0].toUpperCase() + question_fields[i].substr(1);
+//     let label = document.createElement("label");
+//     label.setAttribute("for",question_fields[i]);
+//     let captialize = question_fields[i][0].toUpperCase() + question_fields[i].substr(1);
     
-    label.innerText = captialize+": ";
-    let input = document.createElement("input");
-    input.setAttribute("type","text");
+//     label.innerText = captialize+": ";
+//     let input = document.createElement("input");
+//     input.setAttribute("type","text");
 
-    input.setAttribute("id",question_fields[i]);
-    input.setAttribute("name",question_fields[i]);
-    fieldset.appendChild(label);
-    fieldset.appendChild(input);
-    fieldset.appendChild(hr);
-  }
-  let breakLine = document.createElement("br") ;
-  fieldset.removeChild(fieldset.lastChild);
-  fieldset.appendChild(breakLine);
-    let button = document.createElement("button");
-    button.setAttribute("id","add");
-    button.setAttribute("class","btn btn-outline-secondary  ");
-    button.setAttribute("style","height:30px ; padding-bottom: 30px;float:right; background-color:#264b58; color:beige");
-    button.setAttribute("type","button")
-    button.innerText= "Add";
-    fieldset.appendChild(button);
+//     input.setAttribute("id",question_fields[i]);
+//     input.setAttribute("name",question_fields[i]);
+//     fieldset.appendChild(label);
+//     fieldset.appendChild(input);
+//     fieldset.appendChild(hr);
+//   }
+//   let breakLine = document.createElement("br") ;
+//   fieldset.removeChild(fieldset.lastChild);
+//   fieldset.appendChild(breakLine);
+//     let button = document.createElement("button");
+//     button.setAttribute("id","add");
+//     button.setAttribute("class","btn btn-outline-success");
+//     button.setAttribute("type","button")
+//     button.innerText= "Add";
+//     fieldset.appendChild(button);
 
-    button.onclick=function(){
-      let data = document.getElementsByTagName("input");
-      let post_data={
-      "content":data[0].value,
-      "topic":data[1].value,
-      "level":parseInt(data[2].value),
-      "ans_a":data[3].value,
-      "ans_b":data[4].value,
-      "ans_c":data[5].value,
-      "ans_d":data[6].value,
-      "ans_correct":data[7].value
-    };
+//     button.onclick=function(){
+//       let data = document.getElementsByTagName("input");
+//       let post_data={
+//       "content":data[0].value,
+//       "topic":data[1].value,
+//       "level":parseInt(data[2].value),
+//       "ans_a":data[3].value,
+//       "ans_b":data[4].value,
+//       "ans_c":data[5].value,
+//       "ans_d":data[6].value,
+//       "ans_correct":data[7].value
+//     };
       
-      fetch('http://localhost/api/question_api/create.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(post_data)
-    })
-    .then(location.reload())
+//       fetch('http://localhost/api/question_api/create.php', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(post_data)
+//     })
+//     .then(location.reload())
       
-    }
+//     }
     
 }

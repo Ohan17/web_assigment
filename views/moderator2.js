@@ -77,8 +77,8 @@ function removeTopic1(record_id){
         location.reload();
       }
   
-    let body = document.getElementById("body");
-    let table = document.getElementById("table");
+    let body = document.getElementById("body2");
+    let table = document.getElementById("table2");
     let fieldset = document.createElement("fieldset");
     let legend = document.createElement("legend");
     fieldset.appendChild(legend);
@@ -116,8 +116,8 @@ function removeTopic1(record_id){
     fieldset.appendChild(breakLine);
       let button = document.createElement("button");
       button.setAttribute("id","edit-btn");
-      button.setAttribute("class","btn btn-outline-secondary  ");
-      button.setAttribute("style","height:30px ; padding-bottom: 30px;float:right; background-color:#264b58; color:beige");
+      button.setAttribute("class","btn btn btn-primary mb-4");
+      button.setAttribute("style","height:30px ; padding-bottom: 30px;float:right");
       button.setAttribute("type","button")
       button.innerText= "Edit";
       fieldset.appendChild(button);
@@ -149,68 +149,8 @@ function removeTopic1(record_id){
     });
   }
   
-  let addButton1 = document.getElementById("add-btn"); 
+  let addButton1 = document.getElementById("add-btn2"); 
   addButton1.onclick = function (){
-    addButton1.innerText="Back";
-      addButton1.onclick= function(){
-        location.reload();
-      }
-    let body = document.getElementById("body");
-    let table = document.getElementById("table");
-    let fieldset = document.createElement("fieldset");
-    let legend = document.createElement("legend");
-    fieldset.appendChild(legend);
-    legend.innerText="Change topic";
-   let form = document.createElement('form');
-   form.appendChild(fieldset);
-    body.removeChild(table);
-    body.appendChild(form);
-    
-    let topic_fields = ["name","level"];
-    for (let i=0; i< topic_fields.length;i++)
-    {
-      let hr =  document.createElement("hr") ;
-      
-      let label = document.createElement("label");
-      label.setAttribute("for",topic_fields[i]);
-      let captialize = topic_fields[i][0].toUpperCase() + topic_fields[i].substr(1);
-      
-      label.innerText = captialize+": ";
-      let input = document.createElement("input");
-      input.setAttribute("type","text");
-  
-      input.setAttribute("id",topic_fields[i]);
-      input.setAttribute("name",topic_fields[i]);
-      fieldset.appendChild(label);
-      fieldset.appendChild(input);
-      fieldset.appendChild(hr);
-    }
-    let breakLine = document.createElement("br") ;
-    fieldset.removeChild(fieldset.lastChild);
-    fieldset.appendChild(breakLine);
-      let button = document.createElement("button");
-      button.setAttribute("id","add");
-      button.setAttribute("class","btn btn-outline-secondary  ");
-      button.setAttribute("style","height:30px ; padding-bottom: 30px;float:right; background-color:#264b58; color:beige");
-      button.setAttribute("type","button")
-      button.innerText= "Add";
-      fieldset.appendChild(button);
-  
-      button.onclick=function(){
-        let data = document.getElementsByTagName("input");
-        let post_data={
-        "name":data[0].value,
-        "level":parseInt(data[1].value)
-      };
-        fetch('http://localhost/api/topic_api/create.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(post_data)
-      })
-      .then(location.reload() )
-        
-      }
-      
+    window.location.href = "http://localhost/views/create_question_form.php";
+
   }

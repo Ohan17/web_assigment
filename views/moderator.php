@@ -43,7 +43,7 @@
                 <table id="table2" style="width:100% ;">
                     
                     <h1 class="text-center" >Topic
-                        <button id="add-btn" class="btn btn-outline-secondary ml-5" style="height:30px ; padding-bottom: 30px;"> 
+                        <button id="add-btn2" class="btn btn-outline-secondary ml-5" style="height:30px ; padding-bottom: 30px;"> 
                             <i class="bi bi-plus-lg"></i>
                             Add Topic 
                         </button>
