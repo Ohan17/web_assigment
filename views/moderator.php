@@ -1,11 +1,23 @@
-<?php include "user/header.php"?>
+<?php
+
+include "user/header.php"
+?>
+
+                
 <link rel="stylesheet" href="moderator.css">
-<div class="container">
   
   <ul class="nav nav-tabs">
     <li ><a id="tab1" data-toggle="tab" href="#menu1">Question</a></li>
-    <li><a id="tab2"data-toggle="tab" href="#menu2">Topic </a></li>
+    <li><a id="tab2"data-toggle="tab" href="#menu2" >Topic </a></li>
+    
+    <li>
+    
+    </li>
+    
+    
   </ul>
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top" style="" class="btn btn-outline-secondary">^</button>
 
   <div class="tab-content">
     
@@ -53,17 +65,24 @@
                          <tr>
                              <td class="text-left">ID</td>
                              <td class="text-left">Content</td>
-                             <td class="text-right " >Operation</td>
+                             <td class="text-right " >Operation
+                                 
+                             </td>
                          </tr>
                      </thead>
                 </table>
             </div>
     </div>
     </div>
-    
+   
+
   </div>
 </div>
-<script src="moderator.js"></script>
-<script src="moderator2.js"></script>
+
+
 
 <?php include "user/footer.php"?>
+
+
+<script src="moderator.js"></script>
+<script src="moderator2.js"></script>

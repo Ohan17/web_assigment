@@ -13,7 +13,6 @@ submit.onclick = function(){
         "content":text_area["question"].value,
        "topic":text_inputs[1].value,
        "level":select["level"].value,
-      
        "ans_a":text_inputs[2].value,
        "ans_b":text_inputs[3].value,
        "ans_c":text_inputs[4].value,

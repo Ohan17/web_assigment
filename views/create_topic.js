@@ -8,7 +8,7 @@ submit.onclick = function(){
     let select = document.getElementsByTagName("select")
 
     let dict_input = {
-       "topic":text_inputs[1].value,
+       "name":text_inputs[1].value,
        "level":select["level"].value,
       
     }
@@ -20,6 +20,6 @@ submit.onclick = function(){
       },
       body: JSON.stringify(dict_input)
     })
-    .then(location.reload())
+    .then(e=> console.log(e))
    
 }
