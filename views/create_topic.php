@@ -2,7 +2,7 @@
    
 <div id="form" class="container my-5">
         <div id="title">
-            <b>Create Question</b>
+            <b>Create Topic</b>
         </div>
 
         <div class="form-body">

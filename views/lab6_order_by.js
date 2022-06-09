@@ -2,7 +2,6 @@
 let tab2 = document.getElementById("tab2")
 
 
-
 tab2.onclick = function() {
     const rows = fetch("http://localhost/api/topic_api/read.php")
     .then(res => res.json())
@@ -18,7 +17,7 @@ tab2.onclick = function() {
         let tbody = document.createElement('tbody');
         table.appendChild(tbody)
 
-
+       
         for (var i=0;i<numRow;i++){
            
             var row = document.createElement("tr");

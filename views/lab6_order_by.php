@@ -66,7 +66,12 @@ include "user/header.php"
                              <td class="text-left">ID</td>
                              <td class="text-left">Content</td>
                              <td class="text-right " >Operation
-                               
+                             <Label>Order By</Label>
+                               <select id="order">
+                                    <option value="id">ID</option>
+                                    <option value="name">Name</option>
+                                    <option value="level">Level</option>
+                               </select>
                              </td>
                          </tr>
                      </thead>
@@ -85,4 +90,4 @@ include "user/header.php"
 
 
 <script src="moderator.js"></script>
-<script src="moderator2.js"></script>
+<script src="lab6_order_by.js"></script>

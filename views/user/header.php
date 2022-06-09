@@ -6,6 +6,8 @@ if (!empty($_SESSION)) {
   $name = "Test-taking website";
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +23,6 @@ if (!empty($_SESSION)) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
 </head>
 <body>
  
@@ -34,7 +35,7 @@ if (!empty($_SESSION)) {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
           <li class="nav-item me-5">
-            <a class="nav-link active" aria-current="page" href="index.php"><i class="bi bi-house-door"></i>Home</a>
+            <a class="nav-link active" aria-current="page" href="http://localhost/views/index.php"><i class="bi bi-house-door"></i>Home</a>
           </li>
 
           <li class="nav-item dropdown me-5">
@@ -43,14 +44,14 @@ if (!empty($_SESSION)) {
               Level
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="test_level1.php">Level 1</a></li>
-              <li><a class="dropdown-item" href="test_level2.php">Level 2</a></li>
-              <li><a class="dropdown-item" href="test_level3.php">Level 3</a></li>
+              <li><a class="dropdown-item" href="http://localhost/views/user/test_level1.php">Level 1</a></li>
+              <li><a class="dropdown-item" href="http://localhost/views/user/test_level2.php">Level 2</a></li>
+              <li><a class="dropdown-item" href="http://localhost/views/user/test_level3.php">Level 3</a></li>
             </ul>
           </li>
           <li class="nav-item me-5">
             <?php if (empty($_SESSION)) { ?>
-              <a class="nav-link active" aria-current="page" href="/views/user/login.html"><i class="bi bi-door-open"></i>
+              <a class="nav-link active" aria-current="page" href="http://localhost/views/user/login.html"><i class="bi bi-door-open"></i>
                 Login
               </a>
             <?php } else { ?>
@@ -61,22 +62,73 @@ if (!empty($_SESSION)) {
           </li>
           <li class="nav-item me-5">
               <?php  if (!empty($_SESSION)){?>
-                    <a class="nav-link active" aria-current="page" href="test_history.php"><i class="bi bi-clock-history"></i>
+                    <a class="nav-link active" aria-current="page" href="http://localhost/views/user/test_history.php"><i class="bi bi-clock-history"></i>
                     Test history</a>
               <?php }?>
           </li>
           <li class="nav-item me-5">
+              <?php if (!empty($_SESSION) && $_SESSION["privillege"]!=3){?>
+                    <a class="nav-link active" aria-current="page" href="http://localhost/views/moderator.php"><i class="bi bi-wrench"></i>
+
+                   Operation</a>
+              <?php }?>
+          </li>
+          <li class="nav-item me-5">
               <?php if (!empty($_SESSION) && $_SESSION["privillege"]==1){?>
-                    <a class="nav-link active" aria-current="page" href="../admin_page.php"><i class="bi bi-dpad"></i>
+                    <a class="nav-link active" aria-current="page" href="http://localhost/views/admin_page.php"><i class="bi bi-dpad"></i>
 
                    Admin page</a>
               <?php }?>
           </li>
         </ul>
-        <form class="d-flex col-4 " role="search">
-          <input style=""class="form-control me-2" type="search" placeholder="Search topic" aria-label="Search">
+        <!-- <form class="d-flex col-4 " role="search">
+          <div class="search-result">
+          <input id="search"  class="form-control me-2" type="text" placeholder="Search topic" aria-label="Search">
+          <script >
+     //console.log(document.getElementById("search"))
+              document.getElementById("search").onkeyup =  function(){
+               let string = (document.getElementById("search").value);
+               
+               
+               
+                fetch("http://localhost/api/topic_api/read_by_name.php?name="+string)
+               .then(res=>res.json())
+               .then(data=>{
+                 console.log(data)
+               })
+
+              }
+             
+  </script>
+
+          <ul>
+
+                    </ul>
+          
+
+          </div>
+
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> -->
       </div>
     </div>
   </nav>
+  <div class="row">
+  <form class="d-flex justify-content-center" role="search">
+          <div class="search-result col-10">
+          <input id="search"  class="form-control me-2" type="text" placeholder="Search topic" aria-label="Search">
+          <ul style="display:none ;" id="result-table">
+           
+       
+        
+           <li><a href="#">Lorem ipsum dolor sit amet consectetur </a></li>
+           <li><a href="#">Lorem ipsum dolor sit amet consectetur </a></li> 
+            <li><a href="#">Lorem ipsum dolor sit amet consectetur </a></li>
+            <li><a href="#">Lorem ipsum dolor sit amet consectetur </a></li> 
+            </ul>
+
+          </div>
+
+          <!-- <button class="btn btn-outline-success float-right " type="submit" style="height: 30%">Search</button> -->
+        </form>
+  </div>

@@ -9,8 +9,15 @@
    
     $topic = new Topic($conn);
 
+    $name =  strpos($_SERVER["REQUEST_URI"],'?') ? ($_GET['name']) : 0; 
+   
+    $query = 'SELECT * From topics Where name Like "%'.$name.'%" ';
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
     
-    $topic = $topic->read();
+    $topic= $stmt;
+
+
 
     $rows = $topic->rowCount();
     if ($rows>0){

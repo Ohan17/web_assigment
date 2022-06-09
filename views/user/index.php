@@ -33,11 +33,8 @@ if (!empty($_SESSION)) {
         <div class="card-body">
           <h5 class="card-title">Level Beginner</h5>
           <p class="card-text">This will contain all the test with beginer level for you to try </p>
-          <form action="views/user/test_level1.php">
-            <button type="submit" class="btn btn-outline-success">
-              See more</i>
-            </button>
-          </form>
+          <a href="http://localhost/views/user/test_level1.php"> <button type="submit" class="btn btn-outline-success">See more </button></a>
+
         </div>
       </div>
     </div>
@@ -47,11 +44,8 @@ if (!empty($_SESSION)) {
         <div class="card-body">
           <h5 class="card-title">Level Intermediate</h5>
           <p class="card-text">This will contain all the test with intermediate level for you to try </p>
-          <form action="test_level2.php">
-            <button type="submit" class="btn btn-outline-warning">
-              See more</i>
-            </button>
-          </form>
+          <a href="http://localhost/views/user/test_level2.php"> <button type="submit" class="btn btn-outline-warning">See more </button></a>
+
         </div>
       </div>
     </div>
@@ -62,53 +56,16 @@ if (!empty($_SESSION)) {
         <div class="card-body">
           <h5 class="card-title">Level Advance</h5>
           <p class="card-text">This will contain all the test with advance level for you to try </p>
-          <form action="test_level3.php">
-            <button type="submit" class="btn btn-outline-danger">
-              See more</i>
-            </button>
-          </form>
+          <!-- <form action="test_level3.php" method="get"> -->
+           
+              <a href="http://localhost/views/user/test_level3.php"> <button type="submit" class="btn btn-outline-danger" >See more </button></a>
+           
+          <!-- </form> -->
         </div>
       </div>
     </div>
   </div>
-  <!-- Footer -->
-  <footer class="bg-dark text-center text-white">
-    <!-- Grid container -->
-    <div class="container p-4">
-      <!-- Section: Social media -->
-      <section class="mb-4">
-        <!-- Facebook -->
-
-
-        <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="bi bi-facebook"></i></a>
-
-        <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="bi bi-instagram"></i></i></a>
-      </section>
-      <!-- Section: Social media -->
-
-      <!-- Section: Form -->
-      
-     
-          <!--Grid row-->
-
-
-       
-
-          <!-- Section: Links -->
-          <section class="">
-            <!--Grid row-->
-            <div class="row">
-             
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-white">Hieu dao</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
+  <?php include_once "footer.php"?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 </body>

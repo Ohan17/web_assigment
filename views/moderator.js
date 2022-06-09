@@ -1,5 +1,6 @@
 let tab1 = document.getElementById("tab1")
 
+
 tab1.onclick = function() {
 
 
@@ -8,6 +9,19 @@ const rows = fetch("http://localhost/api/question_api/read.php")
                 .then(data =>{
 
                     const array_question = data['questions'];
+
+                    // const order_by = document.getElementById("order").value
+       
+
+                    // console.log(order_by)
+                    // if (`${order_by}` == `name`){
+                    //   array_question.sort((a, b) => (a.name > b.name) ? 1 : -1)
+                    //   console.log(order_by)
+                    // }
+                    // if (`${order_by}` == `level`){
+                    //   array_question.sort((a, b) => (a.level > b.level) ? 1 : -1)
+                    //   console.log(order_by)
+                    // }
                     const keys = Object.keys(array_question[0])
                     numRow = array_question.length;
 
@@ -125,15 +139,15 @@ function changeQuestion(record_id){
      
       let post_data={
       "id":record_id,
-    "content":data[0].value,
-    "topic":data[1].value,
-    "level":parseInt(data[2].value),
-    "ans_a":data[3].value,
-    "ans_b":data[4].value,
-    "ans_c":data[5].value,
-    "ans_d":data[6].value,
-    "ans_correct":data[7].value};
-    
+    "content":data[1].value,
+    "topic":data[2].value,
+    "level":parseInt(data[3].value),
+    "ans_a":data[4].value,
+    "ans_b":data[5].value,
+    "ans_c":data[6].value,
+    "ans_d":data[7].value,
+    "ans_correct":data[8].value};
+    console.log(post_data)
     fetch('http://localhost/api/question_api/update.php', {
       method: 'POST',
       headers: {
@@ -141,7 +155,7 @@ function changeQuestion(record_id){
       },
       body: JSON.stringify(post_data)
     })
-    .then(location.reload())
+    // .then(location.reload())
   }
   });
 }
@@ -217,4 +231,15 @@ addButton.onclick = function (){
       
 //     }
     
+}
+
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
