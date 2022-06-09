@@ -82,12 +82,7 @@ tab2.onclick = function() {
     .then(data =>{
         let vara=0;
         const array_topic = data['topics'];
-<<<<<<< HEAD
        
-=======
-      
-
->>>>>>> 204614c3e996a903c205da3587accedff77c7e62
         const keys = Object.keys(array_topic[0])
         numRow = array_topic.length;
 
