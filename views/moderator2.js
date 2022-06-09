@@ -1,5 +1,78 @@
 
 let tab2 = document.getElementById("tab2")
+document.getElementById("tab1").onclick =  function () {
+  tab = "question"
+}
+document.getElementById("tab2").onclick =  function () {
+  tab = "topic"
+}
+console.log(tab)
+document.getElementById('order').onchange = function() {
+  console.log()
+  const rows = fetch("http://localhost/api/topic_api/read.php")
+  .then(res => res.json())
+  .then(data =>{
+    let body = document.getElementById("body2");
+    let table= document.getElementById("table2");
+    let table_temp = document.createElement("table");
+    table_temp.setAttribute("id","table2")
+    body.removeChild(table)
+    body.appendChild(table_temp)
+      const array_topic = data['topics'];
+      const order_by = document.getElementById("order").value
+     
+
+      console.log(order_by)
+      if (`${order_by}` == `name`){
+        array_topic.sort((a, b) => (a.name > b.name) ? 1 : -1)
+        console.log(order_by)
+      }
+      if (`${order_by}` == `level`){
+        array_topic.sort((a, b) => (a.level > b.level) ? 1 : -1)
+        console.log(order_by)
+      }
+
+      const keys = Object.keys(array_topic[0])
+      numRow = array_topic.length;
+
+      // body = document.getElementById("body2");
+      // table_temp = document.createElement("table2");
+      
+      let tbody = document.createElement('tbody');
+      table_temp.appendChild(tbody)
+
+
+      for (var i=0;i<numRow;i++){
+         
+          var row = document.createElement("tr");
+
+          for (var j=0 ; j<2;j++){
+              var td = document.createElement("td");
+               td.setAttribute("class","text-left");
+              td.innerHTML=array_topic[i][keys[j]];
+        
+              row.appendChild(td);
+          }
+          var td_delete = document.createElement("td");
+          td_delete.setAttribute("class","text-right");
+          td_delete.innerHTML = `<button  onclick="removeTopic1(this.id)" class="delete-btn" id=${array_topic[i][keys[0]]} ><i class="bi bi-x-lg"></i>Delete</button>`;
+          row.appendChild(td_delete);
+          var td_change = document.createElement("td");
+          td_change.setAttribute("class","text-left");
+          td_change.innerHTML = `<button  onclick="changeTopic1(this.id)" class="delete-btn" id=${array_topic[i][keys[0]]} ><i class="bi bi-pencil-fill"></i>Change</button>`;
+          row.appendChild(td_change);
+          // td.innerText = "<a>Change<a>"
+          // row.appendChild(td);
+          
+          tbody.appendChild(row);
+      }
+      
+
+
+  })
+  .catch(e => console.log(e));
+
+}
 
 
 
@@ -9,7 +82,12 @@ tab2.onclick = function() {
     .then(data =>{
         let vara=0;
         const array_topic = data['topics'];
+<<<<<<< HEAD
        
+=======
+      
+
+>>>>>>> 204614c3e996a903c205da3587accedff77c7e62
         const keys = Object.keys(array_topic[0])
         numRow = array_topic.length;
 

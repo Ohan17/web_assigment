@@ -33,8 +33,16 @@ if (!empty($_SESSION)) {
         <div class="card-body">
           <h5 class="card-title">Level Beginner</h5>
           <p class="card-text">This will contain all the test with beginer level for you to try </p>
+<<<<<<< HEAD
           <a href="http://localhost/views/user/test_level1.php"> <button type="submit" class="btn btn-outline-success">See more </button></a>
 
+=======
+          <form action="test_level1.php">
+            <button type="submit" class="btn btn-outline-success">
+              See more</i>
+            </button>
+          </form>
+>>>>>>> 204614c3e996a903c205da3587accedff77c7e62
         </div>
       </div>
     </div>

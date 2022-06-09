@@ -1,5 +1,11 @@
 let tab1 = document.getElementById("tab1")
 
+<<<<<<< HEAD
+=======
+// document.getElementById('order').onchange = function() {
+// alert(1)
+// }
+>>>>>>> 204614c3e996a903c205da3587accedff77c7e62
 
 tab1.onclick = function() {
 

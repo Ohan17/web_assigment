@@ -66,7 +66,11 @@ include "user/header.php"
                              <td class="text-left">ID</td>
                              <td class="text-left">Content</td>
                              <td class="text-right " >Operation
+<<<<<<< HEAD
                                
+=======
+                                 
+>>>>>>> 204614c3e996a903c205da3587accedff77c7e62
                              </td>
                          </tr>
                      </thead>
