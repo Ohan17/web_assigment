@@ -1,6 +1,12 @@
 <?php 
 include_once "header.php";
-$session_value=(isset($_SESSION))?$_SESSION['id']:''; ?>
+if (!empty($_SESSION)){
+    $session_value=$_SESSION['id'];
+ }
+    else{
+        $session_value='';
+    }
+?>
 
     <div class="container-fluid text-center mt-2" >
           <h4 id="topic-name">  Topic name </h1>
